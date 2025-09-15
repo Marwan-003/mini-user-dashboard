@@ -1,69 +1,92 @@
-# React + TypeScript + Vite
+# mini-user-dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📋 User Management App
 
-Currently, two official plugins are available:
+A small React + TypeScript application built with Vite, Redux Toolkit, Material UI, Bootstrap, Tailwind CSS, and SCSS.  
+This app demonstrates how to fetch users from an API, add new users via a form, and remove users with confirmation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Installation & Setup
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+  ```bash
+  git clone https://github.com/Marwan-003/mini-user-dashboard.git
+  cd mini-user-dashboard
+  ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. Install dependencies:
+  ```bash
+  npm install
+  ```
+   
+  
+5. Run the development server:
+  ```bash
+  npm run dev
+  ```
+7. Build for production:
+  ```bash
+   npm run build
+  ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📌 Usage
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+👥 Users
+- Users are fetched from JSONPlaceholder API.
+- If no users are available, a message will be displayed in the table.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+➕ Add User
+- Click the "Add User" button.
+- A dialog will open asking for:
+  - Name
+  - Email
+  - City
+  - Phone
+- Press Submit → User will be added to the store and shown in the table.
+- Press Cancel → Dialog closes without saving.
+
+❌ Remove User
+- Each user row has a Delete button.
+
+## 📂 Project Structure
+
+```plaintext
+├── App.tsx                 # Main app component
+├── main.tsx                # Entry point
+├── store.ts                # Redux store configuration
+├── components/             # Reusable UI components
+│   ├── AddUserBtn.tsx      # Add user button + dialog
+│   └── UserTable.tsx       # Table displaying users
+├── features/               # Redux slices & hooks
+│   ├── hooks.ts            # useAppDispatch & useAppSelector
+│   └── users/
+│       └── userSlice.ts    # User slice (fetch/add/remove users)
+├── layout/                 # Page layout components
+│   ├── Home.tsx            # Home layout
+│   └── Home.module.scss    # Home styles
+├── pages/                  # Page routes
+│   ├── About.tsx           # About page
+│   └── Users.tsx           # Users management page
+├── style/                  # Global styling
+│   ├── main.scss           # Global SCSS
+│   ├── tailwind.css        # Tailwind entry
+│   └── utilities/
+│       └── _variables.scss # SCSS variables
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Tech Stack
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- React + TypeScript
+- Vite (build tool)
+- Redux Toolkit (state management)
+- Material UI (UI components)
+- Tailwind CSS (utility-first CSS)
+- SCSS (modular styling)
+- Bootstrap (Styles)
+
+## ✅ Features
+
+- Fetch users from API
+- Add new users via form dialog
+- Responsive design using MUI + Tailwind
+- Clean project structure with Redux Toolkit
