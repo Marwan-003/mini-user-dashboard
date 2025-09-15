@@ -1,0 +1,15 @@
+@use '../style/utilities/variables' as vr;
+.link{
+  margin-inline: 1rem;
+  text-decoration: none;
+  color: vr.$main-color;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.activeLink{
+  margin-inline: 1rem;
+  text-decoration: none;
+  color: rgb(99, 99, 199);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
